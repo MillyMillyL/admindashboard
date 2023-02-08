@@ -32,7 +32,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
         color: colors.grey[100],
         padding: "5px 35px 5px 20px",
         backgroundColor:
-          selected === title ? `${colors.primary[500]}` : undefined,
+          selected === title ? `${colors.blueAccent[700]}` : undefined,
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -49,14 +49,20 @@ const Sidebar = () => {
   const [selected, setSelected] = useState("Dashboard");
 
   return (
-    <Box height="100vh">
-      <ProSidebar backgroundColor={colors.primary[400]} collapsed={isCollapsed}>
+    <Box>
+      <ProSidebar
+        backgroundColor={colors.primary[400]}
+        collapsed={isCollapsed}
+        rootStyles={{
+          height: "100%",
+        }}
+      >
         <Menu
           iconShape="square"
           menuItemStyles={{
             button: {
               "&:hover": {
-                backgroundColor: "#335B8C !important",
+                backgroundColor: colors.blueAccent[700],
                 // color: "white !important",
                 // borderRadius: "8px !important",
                 // fontWeight: "bold !important",
