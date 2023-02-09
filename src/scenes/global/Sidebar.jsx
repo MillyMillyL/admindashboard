@@ -29,7 +29,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       active={selected === title}
       component={<NavLink to={to} />}
       style={{
-        color: colors.grey[100],
+        color: selected === title ? "red" : colors.grey[100],
         padding: "5px 35px 5px 20px",
         backgroundColor:
           selected === title ? `${colors.blueAccent[700]}` : undefined,
