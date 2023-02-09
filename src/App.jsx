@@ -15,6 +15,7 @@ import Pie from "./scenes/pie/Pie";
 import FAQ from "./scenes/faq/FAQ";
 import Geography from "./scenes/geography/Geography";
 import Calendar from "./scenes/calendar/Calendar";
+import BarChart from "./components/BarChart";
 
 function App() {
   const [theme, colorMode] = useMode();
