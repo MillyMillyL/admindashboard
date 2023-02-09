@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Calendar as FullCalendar, formatDate } from "@fullcalendar/core";
+import React, { useRef, useState } from "react";
+import FullCalendar from "@fullcalendar/react";
+import { formatDate } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -35,17 +36,18 @@ const Calendar = () => {
         allDay: selected.allDay,
       });
     }
-
-    const handleEventClick = (seleted) => {
-      if (
-        window.confirm(
-          `Are you sure you want to delete the event ${selected.event.title}?`
-        )
-      ) {
-        selected.event.remove();
-      }
-    };
   };
+
+  const handleEventClick = (selected) => {
+    if (
+      window.confirm(
+        `Are you sure you want to delete the event ${selected.event._def.title}?`
+      )
+    ) {
+      selected.event.remove();
+    }
+  };
+
   return (
     <Box m="20px">
       <Header
@@ -98,9 +100,9 @@ const Calendar = () => {
               listPlugin,
             ]}
             headerToolbar={{
-              left: "prev, next, today",
+              left: "prev,next,today",
               center: "title",
-              right: "dayGridMonth, timeGridWeek, timeGridDay, listMonth",
+              right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
             }}
             initialView="dayGridMonth"
             editable={true}
